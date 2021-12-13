@@ -1,24 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+
+import WebMap from "@arcgis/core/WebMap";
+
+import Header from "./Components/Header";
+import View from "./Components/View";
+import Modal from "./Components/Modal";
+
+import applicationJSON from "./config/application.json";
 
 function App() {
+  const { title, splash, webmap } = applicationJSON;
+  const [map, updatedMap] = useState<__esri.WebMap | null>(null);
+
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
+
+  useEffect(() => {
+    const map = new WebMap({
+      portalItem: {
+        id: webmap
+      }
+    });
+    updatedMap(map);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header title={title} />
+      {map ? <View map={map} /> : null}
+      <Modal
+        title={splash.title}
+        content={splash.content}
+        buttonText={splash.buttonText}
+      />
     </div>
   );
 }
