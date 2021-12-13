@@ -1,9 +1,10 @@
 {
-  "title": "Instant Apps: React + ArcGIS Core (ESM)",
+  "title": "Instant Apps: React + @arcgis/core",
   "splash": {
     "title": "Welcome!",
     "content": "Here is a sample React web map application that uses @arcgis/core and Calcite Components",
     "buttonText": "Enter"
   },
+  "home": true,
   "webmap": "6a68a609d0b446cb83c266b0a7cfb453"
 }

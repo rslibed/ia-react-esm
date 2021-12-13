@@ -10,7 +10,7 @@ import Modal from "./Components/Modal";
 import applicationJSON from "./config/application.json";
 
 function App() {
-  const { title, splash, webmap } = applicationJSON;
+  const { title, splash, webmap, home } = applicationJSON;
   const [map, updatedMap] = useState<__esri.WebMap | null>(null);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <Header title={title} />
-      {map ? <View map={map} /> : null}
+      {map ? <View map={map} home={home} /> : null}
       <Modal
         title={splash.title}
         content={splash.content}

@@ -10,7 +10,6 @@ const Modal: FC<ModalProps> = (props: ModalProps): ReactElement => {
 
   function closeModal(): void {
     modalRef.current?.removeAttribute("active");
-    console.log("test", modalRef);
   }
 
   useEffect(() => {}, [modalRef]);
