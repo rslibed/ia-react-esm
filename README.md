@@ -1,4 +1,4 @@
-# Instant Apps: React, ArcGIS Core, and Calcite Components
+# Instant Apps: React, @arcgis/core, and Calcite Components
 
 To run locally, in terminal:
 
